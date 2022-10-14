@@ -33,12 +33,10 @@ public class TestMove : MonoBehaviour
         }
 
         if(Input.GetKey(KeyCode.UpArrow) && grounded)
-        {
             Jump(); 
-        }
 
-        anim.SetBool("run", horizontalInput != 0); 
-        anim.SetBool("grounded", grounded);
+        anim.SetBool("Run", horizontalInput != 0); 
+        anim.SetBool("Grounded", grounded);
     }
 
     private void Jump()
