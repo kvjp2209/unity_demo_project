@@ -7,11 +7,18 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public int maxHealth = 100;
     int currentHealth;
+    [SerializeField] private float speed;
 
     // Update is called once per frame
     void Start()
     {
         currentHealth = maxHealth;
+        animator.SetBool("IsRuning", true);
+    }
+
+    private void Update()
+    {
+        transform.Translate(Vector2.left * speed * Time.deltaTime);
     }
 
     public void TakeDamage(int damage)
@@ -24,6 +31,7 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+
     }
 
     void Die()
