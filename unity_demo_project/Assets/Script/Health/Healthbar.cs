@@ -11,7 +11,7 @@ public class Healthbar : MonoBehaviour
 
     private void Start()
     {
-        
+        totalHealthbar.fillAmount = playerHealth.currentHealth;
     }
 
     private void Update()
