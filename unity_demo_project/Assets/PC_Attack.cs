@@ -37,7 +37,7 @@ public class PC_Attack : MonoBehaviour
         // Damege them
         foreach(Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+           /* enemy.GetComponent<Enemy>().TakeDamage(attackDamage);*/
         }
     }
 
