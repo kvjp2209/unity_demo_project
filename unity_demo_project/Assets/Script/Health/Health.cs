@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
+    [SerializeField] private Object Object;
 
     private void Awake()
     {
@@ -29,6 +30,26 @@ public class Health : MonoBehaviour
             {
                 anim.SetTrigger("Die");
                 GetComponent<TestMove>().enabled = false;
+                dead = true;
+            }
+        }
+    }
+
+    public void DamageEnemy(float _damage)
+    {
+        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+
+        if (currentHealth > 0)
+        {
+            anim.SetTrigger("Hurt");
+            //iframe
+        }
+        else
+        {
+            if (!dead)
+            {
+                anim.SetTrigger("Die");
+                GetComponent<Enemy>().enabled = false;
                 dead = true;
             }
         }
