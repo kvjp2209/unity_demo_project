@@ -8,7 +8,7 @@ public class PC_Attack : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
-    public int attackDamage = 40;
+    public int attackDamage;
 
     public float attackRate = 2f;
     float nextAttackTime = 0f;
@@ -34,10 +34,10 @@ public class PC_Attack : MonoBehaviour
         // Detect ememies in range of attack
         Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        // Damege them
+        // Damage them
         foreach(Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            enemy.GetComponent<Health>().DamageEnemy(attackDamage);
         }
     }
 
