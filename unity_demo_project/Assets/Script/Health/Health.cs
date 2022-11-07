@@ -29,7 +29,9 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("Die");
+                GetComponent<BoxCollider2D>().enabled = false;
                 GetComponent<TestMove>().enabled = false;
+                
                 dead = true;
             }
         }
@@ -50,6 +52,7 @@ public class Health : MonoBehaviour
             {
                 anim.SetTrigger("Die");
                 GetComponent<Enemy>().enabled = false;
+                GetComponent<BoxCollider2D>().enabled = false;
                 dead = true;
             }
         }
